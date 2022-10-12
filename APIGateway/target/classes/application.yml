@@ -1,0 +1,52 @@
+server:
+  port: 3000
+  
+spring:
+  application:
+    name: APIgateway
+    
+  cloud:
+    gateway:
+      routes:
+      - id: AdminBlock
+        uri:
+         lb://ADMINBLOCK
+        predicates:
+        - Path=/admin/**
+      - id: BookingService
+        uri:
+         lb://BOOKINGSERVICE
+        predicates:
+        - Path=/order/**
+      - id: Customer
+        uri:
+         lb://CUSTOMER
+        predicates:
+        - Path=/cust/**
+      - id: Payment
+        uri:
+         lb://PAYMENT
+        predicates:
+        - Path=/payment/**
+      - id: Washer
+        uri:
+         lb://WASHER
+        predicates:
+        - Path=/wash/**
+      - id: Payment_Gateway
+        uri:
+         lb://PAYMENT GATEWAY
+        predicates:
+        - Path=/pay/**
+      - id: send message
+        uri:
+         lb://SEND MESSAGE
+        predicates:
+        - Path=/send/**
+      - id: receive message
+        uri:
+         lb://RECEIVE MESSAGE
+        predicates:
+        - Path=/receive/**
+      
+      
