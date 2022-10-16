@@ -28,7 +28,6 @@ public class customerServiceImplementation implements customerService{
 	@Override
 	public signup addUser(signup signup) {
 		return repo.save(signup);
-	
 	}
 
 	@Override
