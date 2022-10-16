@@ -21,8 +21,8 @@ class serviceImplementationTest {
 	@Test
 	void testFindAll() {
 		List<Admin> myUser = new ArrayList<Admin>();
-		myUser.add(new Admin(1, "messi", "Goat"));
-		myUser.add(new Admin(2, "Neymar", "Goatie"));
+		myUser.add(new Admin(1, "messi", "Goat", "goat"));
+		myUser.add(new Admin(2, "Neymar", "Goatie", "Goatie"));
 		
 		adminRepo Arepo = mock(adminRepo.class);
 		RatingRepository Rrepo = mock(RatingRepository.class);
@@ -41,7 +41,7 @@ class serviceImplementationTest {
 		RatingRepository Rrepo = mock(RatingRepository.class);
 		WashRepository Wrepo = mock(WashRepository.class);
 		
-		Admin admin = new Admin(1, "messi", "Goat");
+		Admin admin = new Admin(1, "messi", "Goat", "goat");
 		
 		serviceImplementation service = new serviceImplementation(Arepo, Rrepo, Wrepo);
 		
@@ -55,7 +55,7 @@ class serviceImplementationTest {
 		RatingRepository Rrepo = mock(RatingRepository.class);
 		WashRepository Wrepo = mock(WashRepository.class);
 		
-		Admin admin = new Admin(1, "messi", "Goat");
+		Admin admin = new Admin(1, "messi", "Goat", "goat");
 		
 		serviceImplementation service = new serviceImplementation(Arepo, Rrepo, Wrepo);
 		
@@ -70,7 +70,7 @@ class serviceImplementationTest {
 		
 		serviceImplementation service = new serviceImplementation(Arepo, Rrepo, Wrepo);
 
-		Admin admin = new Admin(1, "messi", "Goat");
+		Admin admin = new Admin(1, "messi", "Goat", "goat");
 		assertEquals("Deleted", service.deleteadmin(1));	}
 
 	@Test

@@ -22,6 +22,8 @@ import com.ODCarwash.AdminBlock.model.BookingDetails;
 import com.ODCarwash.AdminBlock.model.CustomerRating;
 import com.ODCarwash.AdminBlock.model.WashPack;
 import com.ODCarwash.AdminBlock.model.Washers;
+import com.ODCarwash.AdminBlock.model.login;
+import com.ODCarwash.AdminBlock.service.loginService;
 import com.ODCarwash.AdminBlock.service.serviceImplementation;
 
 
@@ -29,6 +31,8 @@ import com.ODCarwash.AdminBlock.service.serviceImplementation;
 @RequestMapping("/admin")
 public class adminController {
 
+	@Autowired
+	private loginService user;
 	
 	@Autowired
 	private serviceImplementation service;
@@ -64,6 +68,10 @@ public class adminController {
     	return "Sucessfully deleted admin";
 	}
     
+    @PostMapping("/login")
+	public String userLogin(@RequestBody login login) {
+		return user.userLogin(login);
+	}
     //-------------------------------------------------------//
     
     @GetMapping("/allpacks")

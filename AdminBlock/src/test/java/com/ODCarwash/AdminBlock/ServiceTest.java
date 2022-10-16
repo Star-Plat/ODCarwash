@@ -32,8 +32,8 @@ public class ServiceTest {
 	@Order(1)
 	public void testFindAll() {
 		List<Admin> myAdmin = new ArrayList<Admin>();
-		myAdmin.add(new Admin(1, "messi", "Goat"));
-		myAdmin.add(new Admin(2, "ronaldo", "cr7"));
+		myAdmin.add(new Admin(1, "messi", "Goat", "Goat"));
+		myAdmin.add(new Admin(2, "ronaldo", "cr7", "CR7"));
 		
 		when(Arepo.findAll()).thenReturn(myAdmin);     //mocking
 		
