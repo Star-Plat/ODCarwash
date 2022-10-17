@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,17 +16,22 @@ import org.springframework.web.client.RestTemplate;
 
 import com.ODCarwash.WasherBlock.model.bookingDetails;
 import com.ODCarwash.WasherBlock.model.customerRating;
+import com.ODCarwash.WasherBlock.model.login;
 import com.ODCarwash.WasherBlock.model.washers;
+import com.ODCarwash.WasherBlock.service.loginService;
 import com.ODCarwash.WasherBlock.service.washerService;
 
 
 @RestController
 @RequestMapping("/wash")
+@CrossOrigin(origins = "*")
 public class washerController {
 	@Autowired
 	private washerService service;
 	
-
+	@Autowired
+	private loginService user;
+	
 	@Autowired
 	private RestTemplate restTemplate;
 	
@@ -50,6 +56,10 @@ public class washerController {
 	public washers removeUser(@RequestBody washers washer) {
 		service.deletewasher(washer);
 		return washer;
+	}
+	@PostMapping("/login")
+	public String userLogin(@RequestBody login login) {
+		return user.userLogin(login);
 	}
 	
 /*------------------ Resttemplates---------------------------- */

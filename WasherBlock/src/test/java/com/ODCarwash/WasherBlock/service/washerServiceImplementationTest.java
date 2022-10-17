@@ -25,7 +25,7 @@ class washerServiceImplementationTest{
 	
 	@Test
 	void testAddWasher() {
-		washers wash = new washers(1, "messi", "Kolkata","Goat");
+		washers wash = new washers(1, "messi", "Kolkata","Goat", "Goat");
 		
 		when(repository.save(wash)).thenReturn(wash);     //mocking
 		assertEquals(wash,implementation.addWasher(wash));
@@ -34,8 +34,8 @@ class washerServiceImplementationTest{
 	@Test
 	void testGetWashers() {
 		List<washers> myUser = new ArrayList<washers>();
-		myUser.add(new washers(1, "messi", "Kolkata","Goat"));
-		myUser.add(new washers(2, "Ronaldo", "Goa","CR7"));		
+		myUser.add(new washers(1, "messi", "Kolkata","Goat", "Goat"));
+		myUser.add(new washers(2, "Ronaldo", "Goa","CR7", "Goat"));		
 		
 		when(repository.findAll()).thenReturn(myUser);     //mocking
 		
@@ -43,7 +43,7 @@ class washerServiceImplementationTest{
 
 	@Test
 	void testGetWasherByLocation() {
-		washers wash = new washers(1, "messi", "Kolkata","Goat");
+		washers wash = new washers(1, "messi", "Kolkata","Goat", "goat");
 		
 		when(repository.save(wash)).thenReturn(wash);     //mocking
 		assertEquals(0, implementation.getwasherbylocation("Kolkata").size());	
@@ -51,7 +51,7 @@ class washerServiceImplementationTest{
 
 	@Test
 	void testDeleteWasher() {
-		washers wash = new washers(1, "messi", "Kolkata","Goat");
+		washers wash = new washers(1, "messi", "Kolkata","Goat", "goat");
 		assertEquals("Deleted", implementation.deletewasher(wash));
 	}
 
